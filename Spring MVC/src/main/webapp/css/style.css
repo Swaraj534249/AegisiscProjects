@@ -1,0 +1,89 @@
+@charset "ISO-8859-1";
+
+a{
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.table-sortable .sort {
+  cursor: pointer;
+}
+.table-sortable .th-sort-asc::after {
+  content: '\25b4';
+}
+
+.table-sortable .th-sort-desc::after {
+  content: '\25be';
+}
+
+.table-sortable .th-sort-asc::after,
+.table-sortable .th-sort-desc::after {
+  margin-left: 5px;
+}
+
+.table-sortable .th-sort-asc,
+.table-sortable .th-sort-desc {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+a {
+	text-decoration: none;
+}
+
+.contextual .icon {
+	padding-top: 2px;
+	padding-bottom: 3px;
+	border: none;
+}
+
+.icon-add {
+	background-image: url(icon/add.png);
+}
+
+.contextual {
+	float: right;
+	white-space: nowrap;
+	line-height: 1.4em;
+	margin: 5px 0px;
+	padding-left: 10px;
+	font-size: 0.9em;
+}
+
+.icon {
+	background-position: 0% 50%;
+	background-repeat: no-repeat;
+	padding-left: 20px;
+}
+
+.listAction {
+	display: flex;
+	gap: 20px;
+	/* justify-content: center; */
+}
+
+.home-category-card .home-category-col{
+	
+	padding-bottom: 20px ;
+}
+
+.user-card, .item-card, .user-cardindex{
+	max-width: 30% !important;
+	min-width: 15%;	
+	background: #ffffff;
+}
+.user-card-shop-row{
+	margin-bottom:10px;
+	
+  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+}
+.user-card{
+	margin-bottom:20px;
+}
+
+.item-card{
+	margin-bottom:20px;
+}
+
+
