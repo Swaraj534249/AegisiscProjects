@@ -73,12 +73,12 @@ public class LoginController {
 			else {
 
 				session.setAttribute("user", user1);
-				if (user1.getRole().getRoleid() == 3) {
+				if (user1.getRole().getRoleid() == 2) {
 					Item item = (Item) session.getAttribute(ITEM);
 					List<Item> itemlist = itemService.getAllItems(item);						
 					model.addAttribute(ITEMLIST, itemlist);
 					return "homeIn";
-				} else if (user1.getRole().getRoleid() == 2) {
+				} else if (user1.getRole().getRoleid() == 1) {
 					Item item = (Item) session.getAttribute(ITEM);
 					List<Item> itemlist = itemService.getAllItems(item);						
 					model.addAttribute(ITEMLIST, itemlist);
@@ -89,6 +89,36 @@ public class LoginController {
 				}
 
 			}
+			
+		} catch (Exception e) {
+			System.out.println("Error"+e);
+			throw new GenericException("ERROR!");
+//			return "login";
+		}
+	}
+	
+	@RequestMapping(value = "/sellerlogin.html", method = RequestMethod.POST)
+	public String sellerlogin(@ModelAttribute(User) User user, HttpSession session, ModelMap model) {
+
+		try {
+
+			String useremail = "Seller@gmail.com";
+			String pass = "seller";
+			
+			System.out.println(useremail + " " + pass);
+			User user1 = userService.authenticateUser(useremail, pass);
+			
+			System.out.println(useremail + " " + pass);
+						
+				session.setAttribute("user", user1);
+				if (user1.getRole().getRoleid() == 1) {
+					Item item = (Item) session.getAttribute(ITEM);
+					List<Item> itemlist = itemService.getAllItems(item);						
+					model.addAttribute(ITEMLIST, itemlist);
+					return "homeAdmin";
+				} else {
+					return "login";
+				}
 			
 		} catch (Exception e) {
 			System.out.println("Error"+e);
